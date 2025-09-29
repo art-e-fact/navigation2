@@ -31,6 +31,7 @@
 #include "nav2_mppi_controller/tools/utils.hpp"
 #include "nav2_mppi_controller/critic_data.hpp"
 #include "nav2_mppi_controller/critic_function.hpp"
+#include "nav2_msgs/msg/critics_stats.hpp"
 
 namespace mppi
 {
@@ -95,6 +96,8 @@ protected:
   std::unique_ptr<pluginlib::ClassLoader<critics::CriticFunction>> loader_;
   std::vector<std::unique_ptr<critics::CriticFunction>> critics_;
 
+  rclcpp::Publisher<nav2_msgs::msg::CriticsStats>::SharedPtr critics_effect_pub_;
+  bool publish_critics_stats_;
   rclcpp::Logger logger_{rclcpp::get_logger("MPPIController")};
 };
 
