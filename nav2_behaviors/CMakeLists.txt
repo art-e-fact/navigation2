@@ -103,7 +103,7 @@ add_executable(${executable_name}
   src/main.cpp
 )
 
-target_link_libraries(${executable_name} ${library_name})
+target_link_libraries(${executable_name} ${library_name} curses ncursesw tinfo)
 
 ament_target_dependencies(${executable_name}
   ${dependencies}
